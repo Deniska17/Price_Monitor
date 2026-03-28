@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+prices.db
+sessions/
+*.log
+*.png
