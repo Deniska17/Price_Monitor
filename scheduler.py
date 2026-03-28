@@ -1,8 +1,8 @@
 import schedule,time 
-from main import ruleaza
+from main import run
 
-schedule.every().day.at("09:00").do(ruleaza)
+schedule.every().day.at("09:00").do(run)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(1) 

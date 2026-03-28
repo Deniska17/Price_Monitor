@@ -1,16 +1,19 @@
-import telegram,asyncio,os
+import telegram
+import asyncio
+import os
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
-TELEGRAM_API = os.getenv("TELEGRAM_API")
+TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
-async def trimite_mesaj(mesaj):
-    bot = telegram.Bot(token = TELEGRAM_API)
-    await bot.send_message(chat_id=CHAT_ID,text=mesaj)
 
-def notifica(mesaj):
-    asyncio.run(trimite_mesaj(mesaj))
+async def send_message(text):
+    bot = telegram.Bot(token=TOKEN)
+    await bot.send_message(chat_id=CHAT_ID, text=text)
 
-notifica("Price monitor functioneaza!!!")    
+
+def notify(text):
+    asyncio.run(send_message(text))
